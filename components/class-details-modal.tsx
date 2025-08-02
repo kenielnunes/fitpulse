@@ -17,23 +17,30 @@ interface ClassDetailsModalProps {
 }
 
 export function ClassDetailsModal({ classId, isOpen, onClose }: ClassDetailsModalProps) {
-  const { getClass, students, addParticipant, removeParticipant, finishClass, canAddParticipant } = useGymStore()
+  const {
+    students,
+    classes,
+    addParticipant,
+    removeParticipant,
+    finishClass,
+    canAddParticipant,
+  } = useGymStore()
   const { toast } = useToast()
   const [selectedStudentId, setSelectedStudentId] = useState("")
 
   const classData = useMemo(() => {
-    return classId ? getClass(classId) : null
-  }, [classId, getClass])
+    return classes.find((cls) => cls.id === classId) ?? null
+  }, [classes, classId])
 
   const participants = useMemo(() => {
     if (!classData) return []
     return classData.participants.map((id) => students.find((s) => s.id === id)).filter(Boolean)
-  }, [classData, students])
+  }, [classData?.participants, classData?.updatedAt, students])
 
   const availableStudents = useMemo(() => {
     if (!classData) return []
     return students.filter((student) => !classData.participants.includes(student.id))
-  }, [students, classData])
+  }, [students, classData?.participants, classData?.updatedAt])
 
   if (!classData) return null
 
