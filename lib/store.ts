@@ -34,7 +34,7 @@ interface GymStore {
   deleteStudent: (id: string) => void
   getStudent: (id: string) => Student | undefined
 
-  addClass: (classData: Omit<Class, "id" | "createdAt" | "participants">) => void
+  addClass: (classData: Omit<Class, "id" | "createdAt"> & { participants?: string[] }) => void
   updateClass: (id: string, classData: Partial<Class>) => void
   deleteClass: (id: string) => void
   getClass: (id: string) => Class | undefined
@@ -89,7 +89,7 @@ export const useGymStore = create<GymStore>()(
         const newClass: Class = {
           ...classData,
           id: crypto.randomUUID(),
-          participants: [],
+          participants: classData.participants || [],
           createdAt: new Date().toISOString(),
         }
         set((state) => ({ classes: [...state.classes, newClass] }))

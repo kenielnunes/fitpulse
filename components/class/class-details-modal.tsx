@@ -35,12 +35,12 @@ export function ClassDetailsModal({ classId, isOpen, onClose }: ClassDetailsModa
   const participants = useMemo(() => {
     if (!classData) return []
     return classData.participants.map((id) => students.find((s) => s.id === id)).filter(Boolean)
-  }, [classData?.participants, classData?.updatedAt, students])
+  }, [classData?.participants, students])
 
   const availableStudents = useMemo(() => {
     if (!classData) return []
     return students.filter((student) => !classData.participants.includes(student.id))
-  }, [students, classData?.participants, classData?.updatedAt])
+  }, [students, classData?.participants])
 
   if (!classData) return null
 

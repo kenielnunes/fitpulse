@@ -1,5 +1,6 @@
 "use client"
 
+import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
@@ -10,6 +11,7 @@ import { Input } from "@/components/ds/input"
 import { Label } from "@/components/ds/label"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { ClassParticipantsSection } from "@/components/class/class-participants-section"
 
 const classSchema = z.object({
   description: z.string().min(2, "Descrição deve ter pelo menos 2 caracteres"),
@@ -55,22 +57,25 @@ export function ClassForm({ classData, onSuccess, onCancel }: ClassFormProps) {
     resolver: zodResolver(classSchema),
     defaultValues: classData
       ? {
-          description: classData.description,
-          type: classData.type,
-          dateTime: classData.dateTime,
-          maxCapacity: classData.maxCapacity,
-          status: classData.status,
-          allowLateBooking: classData.allowLateBooking,
-        }
+        description: classData.description,
+        type: classData.type,
+        dateTime: classData.dateTime,
+        maxCapacity: classData.maxCapacity,
+        status: classData.status,
+        allowLateBooking: classData.allowLateBooking,
+      }
       : {
-          description: "",
-          type: "",
-          dateTime: "",
-          maxCapacity: 10,
-          status: "aberta",
-          allowLateBooking: false,
-        },
+        description: "",
+        type: "",
+        dateTime: "",
+        maxCapacity: 10,
+        status: "aberta",
+        allowLateBooking: false,
+      },
   })
+
+  // Estado para gerenciar participantes em novas aulas
+  const [participants, setParticipants] = useState<string[]>([])
 
   const status = watch("status")
   const allowLateBooking = watch("allowLateBooking")
@@ -89,10 +94,16 @@ export function ClassForm({ classData, onSuccess, onCancel }: ClassFormProps) {
           variant: "success",
         })
       } else {
-        addClass(data)
+        const newClass = {
+          ...data,
+          participants: participants,
+        }
+
+        addClass(newClass)
+
         toast({
           title: "Aula cadastrada",
-          description: "A aula foi cadastrada com sucesso.",
+          description: `A aula foi cadastrada com sucesso${participants.length > 0 ? ` e ${participants.length} participante(s) adicionado(s)` : ""}.`,
           variant: "success",
         })
       }
@@ -181,6 +192,12 @@ export function ClassForm({ classData, onSuccess, onCancel }: ClassFormProps) {
           Permitir agendamento após o início da aula
         </Label>
       </div>
+
+      <ClassParticipantsSection
+        classId={classData?.id}
+        maxCapacity={watch("maxCapacity")}
+        onParticipantsChange={setParticipants}
+      />
 
       <div className="flex gap-4 pt-6">
         <Button type="submit" disabled={isSubmitting} className="flex-1" isLoading={isSubmitting}>
