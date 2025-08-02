@@ -4,6 +4,8 @@ import { Inter } from "next/font/google"
 import "./globals.css"
 import { Navigation } from "@/components/navigation"
 import { Toaster } from "@/components/ds/toast"
+import { AutoSeedProvider } from "@/components/AutoSeedProvider"
+import { SeedDebugPanel } from "@/components/SeedDebugPanel"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -17,12 +19,16 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+
   return (
     <html lang="pt-BR">
       <body className={inter.className}>
-        <Navigation />
-        <main>{children}</main>
-        <Toaster />
+        <AutoSeedProvider>
+          <Navigation />
+          <main>{children}</main>
+          <Toaster />
+          <SeedDebugPanel />
+        </AutoSeedProvider>
       </body>
     </html>
   )

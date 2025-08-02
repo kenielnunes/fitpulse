@@ -27,6 +27,24 @@ const sampleStudents = [
     neighborhood: "Itaim Bibi",
     planType: "trimestral" as const,
   },
+  {
+    name: "Ana Costa",
+    birthDate: "1988-03-25",
+    cpf: "456.789.123-00",
+    city: "São Paulo",
+    neighborhood: "Jardins",
+    address: "Rua Augusta, 789",
+    planType: "mensal" as const,
+  },
+  {
+    name: "Carlos Ferreira",
+    birthDate: "1995-07-12",
+    cpf: "789.123.456-00",
+    city: "São Paulo",
+    neighborhood: "Vila Olímpia",
+    address: "Av. Faria Lima, 1000",
+    planType: "anual" as const,
+  },
 ]
 
 const sampleClasses = [
@@ -54,18 +72,52 @@ const sampleClasses = [
     status: "aberta" as const,
     allowLateBooking: true,
   },
+  {
+    description: "Yoga Relaxamento",
+    type: "Yoga",
+    dateTime: new Date(Date.now() + 4 * 24 * 60 * 60 * 1000).toISOString(), // daqui 4 dias
+    maxCapacity: 12,
+    status: "aberta" as const,
+    allowLateBooking: true,
+  },
+  {
+    description: "Spinning Intensivo",
+    type: "Spinning",
+    dateTime: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000).toISOString(), // daqui 5 dias
+    maxCapacity: 18,
+    status: "aberta" as const,
+    allowLateBooking: false,
+  },
 ]
 
 export function seedData() {
   const store = useGymStore.getState()
 
+  // Verificar se já existem dados
+  if (store.students.length > 0 || store.classes.length > 0) {
+    console.log("⚠️  Dados já existem no sistema!")
+    console.log(`   - ${store.students.length} alunos cadastrados`)
+    console.log(`   - ${store.classes.length} aulas cadastradas`)
+    return false
+  }
+
+  console.log("🌱 Iniciando seed de dados de teste...")
+
+  // Adicionar alunos
   sampleStudents.forEach((student) => {
     store.addStudent(student)
   })
 
+  // Adicionar aulas
   sampleClasses.forEach((classData) => {
     store.addClass(classData)
   })
 
-  console.log("Dados de exemplo add com sucesso!")
+  console.log("✅ Dados de exemplo adicionados com sucesso!")
+  console.log(`   - ${sampleStudents.length} alunos criados`)
+  console.log(`   - ${sampleClasses.length} aulas criadas`)
+
+  return true
 }
+
+seedData()
