@@ -3,7 +3,7 @@
 import { useState, useMemo } from "react"
 import { Plus, Search, Edit, Trash2, Users, Clock } from "lucide-react"
 import { useGymStore } from "@/lib/store"
-import { ClassForm } from "@/components/class-form"
+import { ClassForm } from "@/components/class/class-form"
 import type { Class } from "@/lib/store"
 import { Button } from "@/components/ds/button"
 import { Input } from "@/components/ds/input"
