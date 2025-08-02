@@ -95,13 +95,8 @@ export function seedData() {
 
   // Verificar se já existem dados
   if (store.students.length > 0 || store.classes.length > 0) {
-    console.log("⚠️  Dados já existem no sistema!")
-    console.log(`   - ${store.students.length} alunos cadastrados`)
-    console.log(`   - ${store.classes.length} aulas cadastradas`)
     return false
   }
-
-  console.log("🌱 Iniciando seed de dados de teste...")
 
   // Adicionar alunos
   sampleStudents.forEach((student) => {
@@ -112,10 +107,6 @@ export function seedData() {
   sampleClasses.forEach((classData) => {
     store.addClass(classData)
   })
-
-  console.log("✅ Dados de exemplo adicionados com sucesso!")
-  console.log(`   - ${sampleStudents.length} alunos criados`)
-  console.log(`   - ${sampleClasses.length} aulas criadas`)
 
   return true
 }
