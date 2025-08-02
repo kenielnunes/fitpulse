@@ -20,6 +20,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={inter.className}>
+        <Navigation />
         <main>{children}</main>
         <Toaster />
       </body>
