@@ -3,7 +3,7 @@
 import { useState, useMemo } from "react"
 import { Plus, Search, Edit, Trash2 } from "lucide-react"
 import { useGymStore } from "@/lib/store"
-import { StudentForm } from "@/components/student-form"
+import { StudentForm } from "@/components/student/student-form"
 import type { Student } from "@/lib/store"
 import { Button } from "@/components/ds/button"
 import { Input } from "@/components/ds/input"
@@ -86,7 +86,7 @@ export default function StudentsPage() {
         {/* Students Grid */}
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {filteredStudents.map((student) => (
-            <Card key={student.id}>
+            <Card key={student.id} className="h-full flex flex-col">
               <CardHeader className="pb-3">
                 <div className="flex justify-between items-start">
                   <div>
@@ -96,7 +96,7 @@ export default function StudentsPage() {
                   <Badge variant={getPlanBadgeVariant(student.planType)}>{student.planType}</Badge>
                 </div>
               </CardHeader>
-              <CardContent className="pt-0">
+              <CardContent className="pt-0 flex flex-col flex-1">
                 <div className="space-y-2 text-sm mb-4">
                   {student.cpf && (
                     <div className="flex justify-between">
@@ -118,7 +118,7 @@ export default function StudentsPage() {
                   )}
                 </div>
 
-                <div className="flex gap-2">
+                <div className="flex gap-2 mt-auto">
                   <Button variant="outline" size="sm" onClick={() => handleEdit(student)} className="flex-1">
                     <Edit className="h-4 w-4 mr-1" />
                     Editar
