@@ -5,7 +5,6 @@ import "./globals.css"
 import { Navigation } from "@/components/navigation"
 import { Toaster } from "@/components/ds/toast"
 import { AutoSeedProvider } from "@/components/AutoSeedProvider"
-import { SeedDebugPanel } from "@/components/SeedDebugPanel"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -27,7 +26,6 @@ export default function RootLayout({
           <Navigation />
           <main>{children}</main>
           <Toaster />
-          <SeedDebugPanel />
         </AutoSeedProvider>
       </body>
     </html>
