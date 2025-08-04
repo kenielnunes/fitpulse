@@ -1,6 +1,7 @@
 "use client"
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ds/card"
+import { Card, CardContent, CardHeader, CardTitle } from "../ui/Card"
+
 
 interface InfoCardProps {
   title: string

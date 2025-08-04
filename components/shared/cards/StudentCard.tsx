@@ -1,10 +1,10 @@
 "use client"
 
 import { Edit, Trash2 } from "lucide-react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ds/card"
-import { Button } from "@/components/ds/button"
-import { Badge } from "@/components/ds/badge"
 import type { Student } from "@/lib/store"
+import { Card, CardContent, CardHeader, CardTitle } from "../ui/Card"
+import { Badge } from "../ui/Badge"
+import { Button } from "../ui/Button"
 
 interface StudentCardProps {
   student: Student

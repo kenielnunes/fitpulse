@@ -1,7 +1,7 @@
 "use client"
 
 import { Search } from "lucide-react"
-import { Card, CardContent } from "@/components/ds/card"
+import { Card, CardContent } from "../ui/Card"
 
 interface EmptyStateCardProps {
   title: string

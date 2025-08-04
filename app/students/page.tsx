@@ -3,12 +3,13 @@
 import { useState, useMemo } from "react"
 import { Plus, Search } from "lucide-react"
 import { useGymStore } from "@/lib/store"
-import { StudentForm } from "@/components/student/student-form"
 import type { Student } from "@/lib/store"
-import { Button } from "@/components/ds/button"
-import { Input } from "@/components/ds/input"
-import { Modal, ModalContent, ModalHeader, ModalTitle } from "@/components/ds/modal"
-import { StudentCard, EmptyStateCard } from "@/components/ds/cards"
+import { Button } from "@/components/shared/ui/Button"
+import { Input } from "@/components/shared/forms/Input"
+import { StudentCard } from "@/components/shared/cards/StudentCard"
+import { Modal, ModalContent, ModalHeader, ModalTitle } from "@/components/shared/ui/Modal"
+import { StudentForm } from "@/components/modules/student/StudentForm"
+import { EmptyStateCard } from "@/components/shared/cards/EmptyStateCard"
 
 export default function StudentsPage() {
   const { students, deleteStudent } = useGymStore()
@@ -69,7 +70,6 @@ export default function StudentsPage() {
           />
         </div>
 
-        {/* Students Grid */}
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {filteredStudents.map((student) => (
             <StudentCard

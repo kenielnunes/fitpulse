@@ -3,12 +3,13 @@
 import { useState, useMemo } from "react"
 import { Plus, Search } from "lucide-react"
 import { useGymStore } from "@/lib/store"
-import { ClassForm } from "@/components/class/class-form"
 import type { Class } from "@/lib/store"
-import { Button } from "@/components/ds/button"
-import { Input } from "@/components/ds/input"
-import { Modal, ModalContent, ModalHeader, ModalTitle } from "@/components/ds/modal"
-import { ClassCard, EmptyStateCard } from "@/components/ds/cards"
+import { Button } from "@/components/shared/ui/Button"
+import { Input } from "@/components/shared/forms/Input"
+import { ClassCard } from "@/components/shared/cards/ClassCard"
+import { Modal, ModalContent, ModalHeader, ModalTitle } from "@/components/shared/ui/Modal"
+import { EmptyStateCard } from "@/components/shared/cards/EmptyStateCard"
+import { ClassForm } from "@/components/modules/class/ClassForm"
 
 export default function ClassesPage() {
   const { classes, deleteClass } = useGymStore()
@@ -59,7 +60,6 @@ export default function ClassesPage() {
           </Button>
         </div>
 
-        {/* Search */}
         <div className="relative mb-6">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
           <Input
@@ -70,7 +70,6 @@ export default function ClassesPage() {
           />
         </div>
 
-        {/* Classes Grid */}
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {filteredClasses.map((cls) => (
             <ClassCard
@@ -93,7 +92,6 @@ export default function ClassesPage() {
           />
         )}
 
-        {/* Modal */}
         <Modal isOpen={isFormOpen} onClose={handleFormClose}>
           <ModalHeader>
             <ModalTitle>{editingClass ? "Editar Aula" : "Cadastrar Nova Aula"}</ModalTitle>
