@@ -59,23 +59,33 @@ Desenvolvido como parte de um desafio técnico para a vaga de Desenvolvedor Fron
 
 ## 📁 Estrutura do Projeto
 
+O projeto adota uma arquitetura orientada a features (*feature-driven*) para garantir escalabilidade e manutenibilidade. A lógica é agrupar os arquivos por funcionalidade, não por tipo. Isso facilita a localização de código relacionado e a manutenção a longo prazo.
+
 ```
 app/
-├── agenda/           # Páginas e lógica de agendamento
-├── classes/          # Páginas e lógica de aulas
-├── students/         # Páginas e lógica de alunos
+├── schedule/         # Páginas e lógica de agendamento (rotas)
+├── classes/          # Páginas e lógica de aulas (rotas)
+├── students/         # Páginas e lógica de alunos (rotas)
 ├── layout.tsx
 └── page.tsx          # Dashboard principal
 
 components/
-├── modules/          # Formulários e componentes específicos por domínio
-├── shared/           # Componentes reutilizáveis (UI, forms, cards, layout, etc.)
+├── features/         # Componentes agrupados por funcionalidade (feature).
+│   ├── class/        # Tudo relacionado à feature "Aulas".
+│   │   └── components/
+│   ├── student/      # Tudo relacionado à feature "Alunos".
+│   │   └── components/
+│   └── dashboard/    # Componentes específicos do Dashboard.
+│
+└── shared/           # Componentes genéricos e reutilizáveis em toda a aplicação.
+    ├── ui/           # Componentes de UI atômicos (Button, Card, Input, etc.).
+    ├── layout/       # Componentes de layout (Header, Sidebar, etc.).
+    └── providers/    # Provedores de contexto (Theme, Auth, etc.).
 
 lib/
-└── utils/            # Funções utilitárias
+└── store.ts          # Store global (Zustand)
+└── utils.ts          # Funções utilitárias
 
-docs/
-└── design-system.ts  # Base do design system
 ```
 
 -----
@@ -105,7 +115,7 @@ npm run dev
 yarn dev
 ```
 
-Acesse [http://localhost:3000](http://localhost:3000) para visualizar o app.
+Acesse [http://localhost:3000](https://www.google.com/search?q=http://localhost:3000) para visualizar o app.
 
 -----
 

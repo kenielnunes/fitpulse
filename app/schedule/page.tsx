@@ -45,7 +45,7 @@ export default function AgendaPage() {
             Agenda de Aulas
           </h1>
           <Link href={'/classes'}>
-            <Button >
+            <Button>
               <PlusCircle className="h-4 w-4 mr-2" />
               Criar Nova Aula
             </Button>
