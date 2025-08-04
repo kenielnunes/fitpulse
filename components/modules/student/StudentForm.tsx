@@ -4,12 +4,12 @@ import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
 import { useGymStore, type Student } from "@/lib/store"
-import { useToast } from "@/components/ds/toast"
-import { Button } from "@/components/ds/button"
-import { Input } from "@/components/ds/input"
-import { Label } from "@/components/ds/label"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { validateCPF, cleanCPF, formatCPF, validateAndFormatCPF } from "@/lib/utils/cpf-validation"
+import { validateCPF, cleanCPF, validateAndFormatCPF } from "@/lib/utils/cpf-validation"
+import { useToast } from "@/components/shared/ui/Toast"
+import { Label } from "@/components/shared/forms/Label"
+import { Input } from "@/components/shared/forms/Input"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/shared/forms/Select"
+import { Button } from "@/components/shared/ui/Button"
 
 const studentSchema = z.object({
   name: z

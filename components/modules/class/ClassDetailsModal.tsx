@@ -3,12 +3,12 @@
 import { useState, useMemo } from "react"
 import { Users, Clock, UserPlus, UserMinus, CheckCircle, AlertCircle } from "lucide-react"
 import { useGymStore } from "@/lib/store"
-import { useToast } from "@/components/ds/toast"
-import { Button } from "@/components/ds/button"
-import { Badge } from "@/components/ds/badge"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ds/card"
-import { Modal, ModalContent, ModalHeader, ModalTitle } from "@/components/ds/modal"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { useToast } from "@/components/shared/ui/Toast"
+import { Modal, ModalContent, ModalHeader, ModalTitle } from "@/components/shared/ui/Modal"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/shared/ui/Card"
+import { Badge } from "@/components/shared/ui/Badge"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/shared/forms/Select"
+import { Button } from "@/components/shared/ui/Button"
 
 interface ClassDetailsModalProps {
   classId: string | null
