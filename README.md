@@ -1,7 +1,3 @@
-Claro, aqui está o conteúdo formatado em Markdown.
-
------
-
 # 🏋️ FitPulse – Sistema de Agendamento para Academia
 
 Desenvolvido como parte de um desafio técnico para a vaga de Desenvolvedor Front-End Pleno, este sistema simula a interface de agendamento de aulas para uma rede de academias, com foco em performance, escalabilidade e boa experiência de usuário, especialmente em dispositivos móveis.
