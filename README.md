@@ -115,7 +115,7 @@ npm run dev
 yarn dev
 ```
 
-Acesse [http://localhost:3000](https://www.google.com/search?q=http://localhost:3000) para visualizar o app.
+Acesse [http://localhost:3000](http://localhost:3000) para visualizar o app.
 
 -----
 
