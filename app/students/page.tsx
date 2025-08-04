@@ -83,7 +83,6 @@ export default function StudentsPage() {
 
         {filteredStudents.length === 0 && (
           <EmptyStateCard
-            title="Nenhum aluno encontrado"
             description={
               searchTerm
                 ? "Nenhum aluno encontrado com os critérios de busca."

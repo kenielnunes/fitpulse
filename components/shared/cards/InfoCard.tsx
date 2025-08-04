@@ -2,7 +2,6 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/Card"
 
-
 interface InfoCardProps {
   title: string
   children: React.ReactNode

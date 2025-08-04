@@ -3,10 +3,10 @@
 import { useState, useMemo } from "react"
 import { Calendar, ChevronLeft, ChevronRight, Users, Clock, Eye } from "lucide-react"
 import { useGymStore } from "@/lib/store"
-import { ClassDetailsModal } from "@/components/class/class-details-modal"
-import { Button } from "@/components/ds/button"
-import { Card, CardContent, CardHeader } from "@/components/ds/card"
-import { Badge } from "@/components/ds/badge"
+import { Card, CardContent, CardHeader } from "@/components/shared/ui/Card"
+import { Button } from "@/components/shared/ui/Button"
+import { Badge } from "@/components/shared/ui/Badge"
+import { ClassDetailsModal } from "@/components/modules/class/ClassDetailsModal"
 
 export default function AgendaPage() {
   const { getClassesByDate } = useGymStore()

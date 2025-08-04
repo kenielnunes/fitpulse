@@ -83,7 +83,6 @@ export default function ClassesPage() {
 
         {filteredClasses.length === 0 && (
           <EmptyStateCard
-            title="Nenhuma aula encontrada"
             description={
               searchTerm
                 ? "Nenhuma aula encontrada com os critérios de busca."

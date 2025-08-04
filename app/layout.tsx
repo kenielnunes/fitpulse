@@ -5,6 +5,7 @@ import "./globals.css"
 import { Navigation } from "@/components/shared/layout/Navigation"
 import { AutoSeedProvider } from "@/components/shared/providers/AutoSeedProvider"
 import { Toaster } from "@/components/shared/ui/Toast"
+import { ReactNode } from "react"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: ReactNode
 }) {
 
   return (

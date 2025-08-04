@@ -4,9 +4,9 @@ import { Calendar, Users, Dumbbell, TrendingUp, Clock } from "lucide-react"
 import Link from "next/link"
 import { useGymStore } from "@/lib/store"
 import { useMemo } from "react"
-import { Button } from "@/components/ds/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ds/card"
-import { Badge } from "@/components/ds/badge"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/shared/ui/Card"
+import { Button } from "@/components/shared/ui/Button"
+import { Badge } from "@/components/shared/ui/Badge"
 
 export default function HomePage() {
   const { students, classes } = useGymStore()

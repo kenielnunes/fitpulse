@@ -4,12 +4,11 @@ import { Search } from "lucide-react"
 import { Card, CardContent } from "../ui/Card"
 
 interface EmptyStateCardProps {
-  title: string
   description: string
   icon?: React.ReactNode
 }
 
-export function EmptyStateCard({ title, description, icon }: EmptyStateCardProps) {
+export function EmptyStateCard({ description, icon }: EmptyStateCardProps) {
   return (
     <Card>
       <CardContent className="text-center py-12">
