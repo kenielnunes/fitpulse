@@ -6,10 +6,10 @@ import { useGymStore } from "@/lib/store"
 import type { Class } from "@/lib/store"
 import { Button } from "@/components/shared/ui/Button"
 import { Input } from "@/components/shared/forms/Input"
-import { ClassCard } from "@/components/shared/cards/ClassCard"
+import { ClassCard } from "@/components/features/class/components/ClassCard"
 import { Modal, ModalContent, ModalHeader, ModalTitle } from "@/components/shared/ui/Modal"
-import { EmptyStateCard } from "@/components/shared/cards/EmptyStateCard"
-import { ClassForm } from "@/components/modules/class/ClassForm"
+import { ClassForm } from "@/components/features/class/components/ClassForm"
+import { EmptyStateCard } from "@/components/shared/ui/EmptyStateCard"
 
 export default function ClassesPage() {
   const { classes, deleteClass } = useGymStore()

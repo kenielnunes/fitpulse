@@ -6,10 +6,10 @@ import { useGymStore } from "@/lib/store"
 import type { Student } from "@/lib/store"
 import { Button } from "@/components/shared/ui/Button"
 import { Input } from "@/components/shared/forms/Input"
-import { StudentCard } from "@/components/shared/cards/StudentCard"
 import { Modal, ModalContent, ModalHeader, ModalTitle } from "@/components/shared/ui/Modal"
-import { StudentForm } from "@/components/modules/student/StudentForm"
-import { EmptyStateCard } from "@/components/shared/cards/EmptyStateCard"
+import { StudentCard } from "@/components/features/student/components/StudentCard"
+import { EmptyStateCard } from "@/components/shared/ui/EmptyStateCard"
+import { StudentForm } from "@/components/features/student/components/StudentForm"
 
 export default function StudentsPage() {
   const { students, deleteStudent } = useGymStore()

@@ -10,7 +10,7 @@ export function Navigation() {
 
   const navItems = [
     { href: "/", label: "Dashboard", icon: Home },
-    { href: "/agenda", label: "Agenda", icon: Calendar },
+    { href: "/schedule", label: "Agenda", icon: Calendar },
     { href: "/students", label: "Alunos", icon: Users },
     { href: "/classes", label: "Aulas", icon: Dumbbell },
   ]

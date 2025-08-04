@@ -105,7 +105,10 @@ export function seedData() {
 
   // Adicionar aulas
   sampleClasses.forEach((classData) => {
-    store.addClass(classData)
+    store.addClass({
+      ...classData,
+      participants: []
+    })
   })
 
   return true

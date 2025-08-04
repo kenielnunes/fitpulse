@@ -146,10 +146,12 @@ export const useGymStore = create<GymStore>()(
       // Utils
       getClassesByDate: (date) => {
         return get().classes.filter((cls) => {
-          const classDate = new Date(cls.dateTime).toDateString()
-          const targetDate = new Date(date).toDateString()
-          return classDate === targetDate
-        })
+          const classDate = new Date(cls.dateTime);
+
+          const targetDate = new Date(date + 'T00:00:00');
+
+          return classDate.toDateString() === targetDate.toDateString();
+        });
       },
 
       canAddParticipant: (classId, studentId) => {

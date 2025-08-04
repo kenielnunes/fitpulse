@@ -6,8 +6,8 @@ import { useMemo } from "react"
 import { Button } from "@/components/shared/ui/Button"
 import { Badge } from "@/components/shared/ui/Badge"
 import { useGymStore } from "@/lib/store"
-import { MetricCard } from "@/components/shared/cards/MetricCard"
-import { DashboardSectionCard } from "@/components/shared/cards/DashboardSectionCard"
+import { DashboardSectionCard } from "@/components/features/dashboard/components/DashboardSectionCard"
+import { MetricCard } from "@/components/features/dashboard/components/MetricCard"
 
 
 export default function HomePage() {
@@ -80,7 +80,7 @@ export default function HomePage() {
               title="Aulas de Hoje"
               icon={Clock}
               buttonText="Ver todas"
-              buttonHref="/agenda"
+              buttonHref="/schedule"
             >
               {todayClasses.length === 0 ? (
                 <div className="text-center py-12 flex flex-col items-center justify-center flex-1">
@@ -89,7 +89,7 @@ export default function HomePage() {
                   </div>
                   <p className="text-gray-500 font-medium">Nenhuma aula para hoje.</p>
                   <p className="text-sm text-gray-400">Que tal criar uma nova aula?</p>
-                  <Link href="/aulas/nova" className="mt-4">
+                  <Link href="/classes" className="mt-4">
                     <Button>Criar nova aula</Button>
                   </Link>
                 </div>
@@ -124,7 +124,7 @@ export default function HomePage() {
               title="Alunos Recentes"
               icon={Users}
               buttonText="Ver todos"
-              buttonHref="/alunos"
+              buttonHref="/students"
             >
               {recentStudents.length > 0 ? (
                 <div className="space-y-4">

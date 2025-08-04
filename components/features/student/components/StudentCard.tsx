@@ -2,9 +2,9 @@
 
 import { Edit, Trash2 } from "lucide-react"
 import type { Student } from "@/lib/store"
-import { Card, CardContent, CardHeader, CardTitle } from "../ui/Card"
-import { Badge } from "../ui/Badge"
-import { Button } from "../ui/Button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/shared/ui/Card"
+import { Badge } from "@/components/shared/ui/Badge"
+import { Button } from "@/components/shared/ui/Button"
 
 interface StudentCardProps {
   student: Student
